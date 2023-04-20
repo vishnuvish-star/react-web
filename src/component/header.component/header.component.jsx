@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/shop-logo.png";
 import "./header.style.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -19,6 +20,9 @@ const Header = () => {
           <Link to={"/about"} className="link">
             About
           </Link>
+          <span>
+            <FaShoppingCart className="cart-logo" />
+          </span>
         </div>
       </div>
     </div>
