@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/shop-logo.png";
 import "./header.style.css";
 import { FaShoppingCart } from "react-icons/fa";
+import CartContext from "../context/context.";
+import { useContext } from "react";
 
 const Header = () => {
+  const { items } = useContext(CartContext);
   return (
     <div>
       <div className="header">
@@ -20,9 +23,12 @@ const Header = () => {
           <Link to={"/about"} className="link">
             About
           </Link>
-          <span>
-            <FaShoppingCart className="cart-logo" />
-          </span>
+          <Link to={"/checkout"}>
+            <div>
+              <FaShoppingCart className="cart-logo" />
+              <span>{items.length}</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

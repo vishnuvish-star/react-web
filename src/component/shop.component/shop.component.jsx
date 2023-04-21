@@ -1,8 +1,10 @@
 import products from "../data.component/data.component";
 import "./shop.style.css";
-
+// import CartContext from "../context/context.";
+// import { useContext } from "react";
 const Shop = () => {
-  console.log(products);
+  // const { addToCart } = useContext(CartContext);
+  // console.log(products);
   return (
     <div>
       <div className="products">
@@ -15,7 +17,7 @@ const Shop = () => {
                 <span>RS.{data.price}</span>
                 <span>{data.rating}</span>
               </div>
-              <button className="ProductCard-button">Add to cart</button>
+              <button className="ProductCard-button">Add to Cart</button>
             </div>
           );
         })}
