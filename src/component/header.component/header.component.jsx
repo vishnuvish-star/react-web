@@ -23,7 +23,7 @@ const Header = () => {
           <Link to={"/about"} className="link">
             About
           </Link>
-          <Link to={"/checkout"}>
+          <Link to={"/checkout"} className="link">
             <div>
               <FaShoppingCart className="cart-logo" />
               <span>{items.length}</span>
