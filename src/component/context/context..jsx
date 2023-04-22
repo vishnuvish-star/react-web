@@ -33,7 +33,13 @@ export function ContextProvider({ children }) {
       ...state,
       cart: state.cart.map((cartItem) =>
         cartItem.id === product.id
-          ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
+          ? {
+              ...cartItem,
+              count:
+                cartItem.count > 1
+                  ? cartItem.count - 1
+                  : removeItem(cartItem.removeItem),
+            }
           : cartItem
       ),
     });

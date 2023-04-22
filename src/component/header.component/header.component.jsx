@@ -6,7 +6,7 @@ import CartContext from "../context/context.";
 import { useContext } from "react";
 
 const Header = () => {
-  const { items } = useContext(CartContext);
+  const { cartItemCount } = useContext(CartContext);
   return (
     <div>
       <div className="header">
@@ -26,7 +26,7 @@ const Header = () => {
           <Link to={"/checkout"} className="link">
             <div>
               <FaShoppingCart className="cart-logo" />
-              <span>{items.length}</span>
+              <span>{cartItemCount}</span>
             </div>
           </Link>
         </div>
