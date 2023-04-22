@@ -4,6 +4,8 @@ import Home from "./component/home.component/home.component";
 import Shop from "./component/shop.component/shop.component";
 import Checkout from "./component/checkout/checkout.component";
 import { ContextProvider } from "./component/context/context.";
+import RegisterUser from "./component/register/registerUser.component";
+
 // import CartContext from "./component/context/context.";
 // import { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
@@ -26,6 +28,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/register" element={<RegisterUser />} />
           </Route>
         </Routes>
       </BrowserRouter>

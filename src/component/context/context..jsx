@@ -35,10 +35,7 @@ export function ContextProvider({ children }) {
         cartItem.id === product.id
           ? {
               ...cartItem,
-              count:
-                cartItem.count > 1
-                  ? cartItem.count - 1
-                  : removeItem(cartItem.removeItem),
+              count: cartItem.count > 1 ? cartItem.count - 1 : 1,
             }
           : cartItem
       ),

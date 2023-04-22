@@ -29,6 +29,11 @@ const Header = () => {
               <span>{cartItemCount}</span>
             </div>
           </Link>
+          <Link to={"/register"} className="link">
+            <div>
+              <div className="register">Register</div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
