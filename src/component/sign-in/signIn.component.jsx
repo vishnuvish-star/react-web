@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+// import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../../utils/firebase.config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-const RegisterUser = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -31,7 +31,6 @@ const RegisterUser = () => {
 
   return (
     <>
-      <ToastContainer />
       <form onSubmit={registerUser}>
         <div>
           <label htmlFor="email">Email</label>
@@ -76,4 +75,4 @@ const RegisterUser = () => {
   );
 };
 
-export default RegisterUser;
+export default SignIn;
