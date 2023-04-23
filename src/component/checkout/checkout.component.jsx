@@ -5,6 +5,7 @@ import "./checkout.style.css";
 const Checkout = () => {
   const { state, increase, decrease, removeItem } = useContext(CartContext);
   console.log(state.cart);
+
   return (
     <div>
       <div className="products">
@@ -27,13 +28,14 @@ const Checkout = () => {
                 <button
                   onClick={() => {
                     decrease(product);
+                    console.log("click");
                   }}
                   className="decrease-btn"
                 >
                   -
                 </button>
               </div>
-              <span className="cartCount">{product.count}</span>
+              <div className="cartCount">{product.count}</div>
               <div>
                 <button
                   onClick={() => {

@@ -30,9 +30,7 @@ const Header = () => {
           <Link to={"/shop"} className="link">
             Shop
           </Link>
-          <Link to={"/about"} className="link">
-            {user || "guest"}
-          </Link>
+          <div className="link">{user || "guest"}</div>
           <Link to={"/checkout"} className="link">
             <div>
               <FaShoppingCart className="cart-logo" />

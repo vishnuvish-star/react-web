@@ -17,9 +17,9 @@ const SignIn = () => {
     event.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then((registerdUser) => {
         // Signed in
-        const user = userCredential.user;
+        const user = registerdUser.user;
         console.log(user);
         setUser(user.email);
         navigate("/shop");
@@ -55,7 +55,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-container">
       <h1 className=" title">Sign In With Your Account</h1>
-      {error ? <h2>{error}</h2> : null}
+      {error ? <h2 className="error-msg">{error}</h2> : null}
       <form onSubmit={handleSignIn} className="form-container">
         <div>
           <label htmlFor="email" className="form-text">

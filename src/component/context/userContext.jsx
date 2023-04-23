@@ -6,7 +6,9 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
+
 import { auth, app } from "../../utils/firebase.config";
+
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
@@ -31,7 +33,6 @@ export function UserProvider({ children }) {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
 
@@ -43,8 +44,8 @@ export function UserProvider({ children }) {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+
         // The signed-in user info.
         const user = result.user;
         console.log(user);
@@ -53,14 +54,14 @@ export function UserProvider({ children }) {
       })
       .catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
+
         const errorMessage = error.message;
         console.log(errorMessage);
         // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        // const email = error.customData.email;
+        // // The AuthCredential type that was used.
+        // const credential = GoogleAuthProvider.credentialFromError(error);
+        // // ...
       });
   };
 
@@ -69,8 +70,7 @@ export function UserProvider({ children }) {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-
+        // const uid = user.uid;
         // ...
       } else {
         // User is signed out
