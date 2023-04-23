@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
-import img from "../../assets/images/Top-Ecommerce-Websites.jpg";
+
 import "./home.component.style.css";
 
 const Home = () => {
   return (
     <div>
       <div className="img-container">
-        <img src={img} alt="Home page image" className="background-img" />
+        <img
+          src={
+            "https://img.freepik.com/free-vector/template-banner-online-store-with-shopping-cart-with-purchases-boxes-delivery-from-supermarket-vector-illustration_548887-104.jpg?w=2000"
+          }
+          className="background-img"
+          alt="shop"
+        />
       </div>
       <button className="shop-btn">
         <Link to={"/shop"} className="link">

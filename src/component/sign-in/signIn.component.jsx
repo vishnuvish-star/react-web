@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const SignIn = () => {
   const [error, setError] = useState("");
 
-  const { email, setEmail, password, setPassword, user, setUser } =
+  const { email, setEmail, password, setPassword, setUser } =
     useContext(UserContext);
 
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const SignIn = () => {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
         setError(errorMessage);

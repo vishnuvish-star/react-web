@@ -3,7 +3,7 @@ import Logo from "../../assets/images/shop-logo.png";
 import "./header.style.css";
 import { FaShoppingCart } from "react-icons/fa";
 import CartContext from "../context/context.";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import UserContext from "../context/userContext";
 
 const Header = () => {
