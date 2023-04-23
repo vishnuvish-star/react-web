@@ -3,10 +3,20 @@ import Logo from "../../assets/images/shop-logo.png";
 import "./header.style.css";
 import { FaShoppingCart } from "react-icons/fa";
 import CartContext from "../context/context.";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import UserContext from "../context/userContext";
 
 const Header = () => {
   const { cartItemCount } = useContext(CartContext);
+  const { user } = useContext(UserContext);
+  // const [state, setState] = useState("sign-in");
+  // useEffect(() => {
+  //   if (user) {
+  //     setState("sign-out");
+  //   } else {
+  //     setState("sign-in");
+  //   }
+  // }, [state]);
   return (
     <div>
       <div className="header">
@@ -21,7 +31,7 @@ const Header = () => {
             Shop
           </Link>
           <Link to={"/about"} className="link">
-            About
+            {user || "guest"}
           </Link>
           <Link to={"/checkout"} className="link">
             <div>
@@ -29,11 +39,15 @@ const Header = () => {
               <span>{cartItemCount}</span>
             </div>
           </Link>
-          <Link to={"/signIn"} className="link">
-            <div>
-              <div className="register">Sign-In</div>
-            </div>
-          </Link>
+          {user ? (
+            <Link to={"/signIn"}>Sign-Out</Link>
+          ) : (
+            <Link to={"/signIn"} className="link">
+              <div>
+                <div className="register">Sign-in</div>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </div>

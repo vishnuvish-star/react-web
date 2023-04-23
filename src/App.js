@@ -9,30 +9,35 @@ import { ContextProvider } from "./component/context/context.";
 // import { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import SignIn from "./component/sign-in/signIn.component";
+import SignUp from "./component/sign-up/sign-up.component";
+import { UserProvider } from "./component/context/userContext";
 function App() {
   // const { item } = useContext(CartContext);
   // console.log(item);
   return (
-    <ContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Outlet />
-              </>
-            }
-          >
-            <Route index element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/signIn" element={<SignIn />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ContextProvider>
+    <UserProvider>
+      <ContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <Outlet />
+                </>
+              }
+            >
+              <Route index element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/signIn" element={<SignIn />} />
+              <Route path="/signUp" element={<SignUp />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ContextProvider>
+    </UserProvider>
   );
 }
 
