@@ -2,7 +2,7 @@
 import "./shop.style.css";
 import CartContext from "../context/context.";
 import { useContext } from "react";
-import products from "../data.component/data.component";
+
 const Shop = () => {
   const { state, addToCart } = useContext(CartContext);
   console.log(state.data);
