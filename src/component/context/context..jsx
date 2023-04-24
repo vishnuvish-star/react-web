@@ -12,7 +12,6 @@ export function ContextProvider({ children }) {
     data: products,
     cart: [],
   });
-
   // items added to cart
   const addToCart = (product) => {
     setState({

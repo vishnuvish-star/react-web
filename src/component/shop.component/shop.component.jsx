@@ -18,14 +18,7 @@ const Shop = () => {
               <h4>{data.name}</h4>
               <div className="product-card-details">
                 <span>RS.{data.price}</span>
-                {/* <span className="rating-container">
-                  <img
-                    src={ratingImg}
-                    alt="rating-logo"
-                    className="rating-logo"
-                  />
-                  {product.rating}
-                </span> */}
+
                 <span>
                   <img
                     src={ratingImg}

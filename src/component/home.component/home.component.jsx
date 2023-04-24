@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
 import "./home.component.style.css";
+import UserContext from "../context/userContext";
+import { useContext } from "react";
 
 const Home = () => {
+  const { user } = useContext(UserContext);
   return (
     <div className="home-container">
       <div className="img-container">
@@ -14,11 +17,25 @@ const Home = () => {
           alt="shop"
         />
       </div>
-      <button className="shop-btn">
-        <Link to={"/shop"} className="link">
-          Shop Now
-        </Link>
-      </button>
+      {/* user not equal to guest means user is SIGN IN  */}
+      {user !== "guest" ? (
+        <button className="shop-btn">
+          <Link to={"/shop"} className="link">
+            Shop Now
+          </Link>
+        </button>
+      ) : (
+        <button className="shop-btn">
+          <span
+            onClick={() => {
+              alert("Log in First");
+            }}
+            className="link"
+          >
+            Shop Now
+          </span>
+        </button>
+      )}
     </div>
   );
 };

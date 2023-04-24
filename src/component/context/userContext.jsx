@@ -14,7 +14,7 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("guest");
 
   const provider = new GoogleAuthProvider(app);
 

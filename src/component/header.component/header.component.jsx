@@ -9,6 +9,7 @@ import UserContext from "../context/userContext";
 const Header = () => {
   const { cartItemCount } = useContext(CartContext);
   const { user } = useContext(UserContext);
+  // const { loginUser } = useContext(CartContext);
   // const [state, setState] = useState("sign-in");
   // useEffect(() => {
   //   if (user) {
@@ -27,9 +28,23 @@ const Header = () => {
           <Link to={"/"} className="link">
             Home
           </Link>
-          <Link to={"/shop"} className="link">
-            Shop
-          </Link>
+          {/* user not equal to guest means user is SIGN IN  */}
+
+          {user !== "guest" ? (
+            <Link to={"/shop"} className="link">
+              Shop
+            </Link>
+          ) : (
+            <div
+              onClick={() => {
+                alert("log in first");
+              }}
+              className="link"
+            >
+              Shop
+            </div>
+          )}
+          {/* user || "guest" using short circuting */}
           <div className="link">{user || "guest"}</div>
           <Link to={"/checkout"} className="link">
             <div>
@@ -37,7 +52,8 @@ const Header = () => {
               <span>{cartItemCount}</span>
             </div>
           </Link>
-          {user ? (
+          {/* user is not sign in GO TO Sign-in component */}
+          {user !== "guest" ? (
             <Link to={"/signIn"}>Sign-Out</Link>
           ) : (
             <Link to={"/signIn"} className="link">
