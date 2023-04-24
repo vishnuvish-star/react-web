@@ -12,14 +12,16 @@ const SignIn = () => {
     useContext(UserContext);
 
   const navigate = useNavigate();
-
+  // const error=()=>{
+  //   return
+  // }
   const handleSignIn = (event) => {
     event.preventDefault();
-
+    // firebase code
     signInWithEmailAndPassword(auth, email, password)
-      .then((registerdUser) => {
+      .then((registeredUser) => {
         // Signed in
-        const user = registerdUser.user;
+        const user = registeredUser.user;
         console.log(user);
         setUser(user.email);
         navigate("/shop");
@@ -32,7 +34,16 @@ const SignIn = () => {
         // const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
-        setError(errorMessage);
+        // error.code === "auth/user-not-found"
+        //   ? setError("user not found")
+        //   : setError("password/E-mail not match");
+
+        // Error set to setError
+        setError(
+          error.code === "auth/user-not-found"
+            ? "User Not Found"
+            : "Password/Email Not Match"
+        );
       });
   };
 
@@ -100,9 +111,9 @@ const SignIn = () => {
         </div>
 
         <p>
-          Don't Have a Account Create a New Account Using
+          Don't Have a Account? Create
           <Link to={"/signUp"} className="link">
-            <span> Sign-up</span>
+            <span>Sign-up</span>
           </Link>
         </p>
       </div>

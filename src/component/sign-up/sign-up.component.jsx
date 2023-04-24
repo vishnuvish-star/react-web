@@ -4,10 +4,6 @@ import UserContext from "../context/userContext";
 import "./sign-up.style.css";
 
 const SignUp = () => {
-  // const [email, setEmail] = useState("");
-  // const [name, setName] = useState("");
-  // const [password, setPassword] = useState("");
-
   const {
     email,
     setEmail,
@@ -21,6 +17,7 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     registerUser(e);
+    // submit the sign-up GO TO sign-in page
     navigate("/signIn");
   };
   return (

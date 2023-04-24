@@ -33,6 +33,7 @@ const Checkout = () => {
                 </span>
               </div>
               <div className="price-container">
+                {/* used short circuting */}
                 {product.count > 1 && (
                   <>
                     <span className="product-count">Qty:{product.count}</span>
