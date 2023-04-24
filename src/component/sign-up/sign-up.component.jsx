@@ -21,7 +21,7 @@ const SignUp = () => {
     navigate("/signIn");
   };
   return (
-    <div className="sign-in-container">
+    <div className="sign-up-container">
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="email-container">
           <h2 className="title">Create your account</h2>

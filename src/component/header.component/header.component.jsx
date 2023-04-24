@@ -54,7 +54,9 @@ const Header = () => {
           </Link>
           {/* user is not sign in GO TO Sign-in component */}
           {user !== "guest" ? (
-            <Link to={"/signIn"}>Sign-Out</Link>
+            <Link to={"/signIn"} className="link">
+              Sign-Out
+            </Link>
           ) : (
             <Link to={"/signIn"} className="link">
               <div>

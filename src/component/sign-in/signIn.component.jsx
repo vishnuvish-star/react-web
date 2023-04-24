@@ -12,9 +12,7 @@ const SignIn = () => {
     useContext(UserContext);
 
   const navigate = useNavigate();
-  // const error=()=>{
-  //   return
-  // }
+
   const handleSignIn = (event) => {
     event.preventDefault();
     // firebase code
@@ -109,13 +107,14 @@ const SignIn = () => {
             Sign Out
           </button>
         </div>
-
-        <p>
-          Don't Have a Account? Create
-          <Link to={"/signUp"} className="link">
-            <span>Sign-up</span>
-          </Link>
-        </p>
+        <div>
+          <p>
+            Don't Have a Account? Create
+            <Link to={"/signUp"} className="link">
+              <span>Sign-up</span>
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

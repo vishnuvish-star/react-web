@@ -17,6 +17,7 @@
   text-decoration: none;
   font-weight: 700;
   color: #219ebc;
+  cursor: pointer;
 }
 .logo {
   padding: 2rem;
