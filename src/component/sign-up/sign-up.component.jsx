@@ -1,8 +1,13 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../context/userContext";
 import "./sign-up.style.css";
 
 const SignUp = () => {
+  // const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  // const [password, setPassword] = useState("");
+
   const {
     email,
     setEmail,
@@ -12,10 +17,29 @@ const SignUp = () => {
     registerUserWithGoogle,
   } = useContext(UserContext);
 
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    registerUser(e);
+    navigate("/signIn");
+  };
   return (
     <div className="sign-in-container">
-      <form className="form-container" onSubmit={registerUser}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <div className="email-container">
+          <h2 className="title">Create your account</h2>
+          {/* <label htmlFor="name" className="form-text">
+            Name
+          </label>
+          <input
+            placeholder="Enter Name"
+            type="name"
+            value={name}
+            id="name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input> */}
           <label htmlFor="email" className="form-text">
             Email
           </label>

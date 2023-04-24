@@ -2,6 +2,7 @@ import CartContext from "../context/context.";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./checkout.style.css";
+import ratingImg from "../../assets/images/Rating-img.png";
 const Checkout = () => {
   const { state, increase, decrease, removeItem } = useContext(CartContext);
   console.log(state.cart);
@@ -22,7 +23,24 @@ const Checkout = () => {
 
               <div className="product-card-details">
                 <span>RS.{product.price}</span>
-                <span>{product.rating}</span>
+                <span className="rating-container">
+                  <img
+                    src={ratingImg}
+                    alt="rating-logo"
+                    className="rating-logo"
+                  />
+                  {product.rating}
+                </span>
+              </div>
+              <div className="price-container">
+                {product.count > 1 && (
+                  <>
+                    <span className="product-count">Qty:{product.count}</span>
+                    <span className="product-amnt">
+                      Total:{(product.count * product.price).toFixed(2)}
+                    </span>
+                  </>
+                )}
               </div>
               <div>
                 <button

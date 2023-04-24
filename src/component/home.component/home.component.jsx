@@ -4,7 +4,7 @@ import "./home.component.style.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <div className="img-container">
         <img
           src={

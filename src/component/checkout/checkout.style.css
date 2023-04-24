@@ -1,7 +1,7 @@
-.products {
+/* .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 .product-card {
   /* background-color: red; */
   padding: 1rem;
@@ -9,7 +9,14 @@
   margin-bottom: 1rem;
   position: relative;
 }
-
+.rating-logo {
+  width: 1.25rem;
+}
+.rating-container {
+  /* display: flex; */
+  font-weight: 600;
+  gap: 0.25rem;
+}
 .product-image {
   object-fit: cover;
   flex-shrink: 1;
@@ -31,4 +38,17 @@
 }
 .cartCount {
   display: inline;
+}
+.price-container {
+  /* background-color: red; */
+  width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 0; */
+  /* padding: 0; */
+}
+.decrease-btn,
+.increase-btn {
+  cursor: pointer;
 }

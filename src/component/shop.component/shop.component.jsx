@@ -2,6 +2,7 @@
 import "./shop.style.css";
 import CartContext from "../context/context.";
 import { useContext } from "react";
+import ratingImg from "../../assets/images/Rating-img.png";
 
 const Shop = () => {
   const { state, addToCart } = useContext(CartContext);
@@ -17,7 +18,22 @@ const Shop = () => {
               <h4>{data.name}</h4>
               <div className="product-card-details">
                 <span>RS.{data.price}</span>
-                <span>{data.rating}</span>
+                {/* <span className="rating-container">
+                  <img
+                    src={ratingImg}
+                    alt="rating-logo"
+                    className="rating-logo"
+                  />
+                  {product.rating}
+                </span> */}
+                <span>
+                  <img
+                    src={ratingImg}
+                    alt="rating-logo"
+                    className="rating-logo"
+                  />
+                  {data.rating}
+                </span>
               </div>
               <button
                 className="ProductCard-button"
