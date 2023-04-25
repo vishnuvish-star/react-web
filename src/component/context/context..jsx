@@ -8,6 +8,7 @@ const CartContext = createContext();
 // set Provider function and params children  components
 export function ContextProvider({ children }) {
   // use state
+  // initial state {data:products,cart:[]} object
   const [state, setState] = useState({
     data: products,
     cart: [],
@@ -16,13 +17,15 @@ export function ContextProvider({ children }) {
   const addToCart = (product) => {
     setState({
       ...state,
+      // same product is clicked first true condition is running then map method run
       cart: state.cart.find((cartItem) => cartItem.id === product.id)
         ? state.cart.map((cartItem) =>
             cartItem.id === product.id
               ? { ...cartItem, count: cartItem.count + 1 }
               : cartItem
           )
-        : [...state.cart, { ...product, count: 1 }],
+        : // first run else part because new one is arrived
+          [...state.cart, { ...product, count: 1 }],
     });
   };
 

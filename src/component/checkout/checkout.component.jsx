@@ -1,4 +1,5 @@
 import CartContext from "../context/context.";
+// import { useEffect } from "react";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./checkout.style.css";
@@ -6,12 +7,19 @@ import ratingImg from "../../assets/images/Rating-img.png";
 const Checkout = () => {
   const { state, increase, decrease, removeItem } = useContext(CartContext);
   console.log(state.cart);
+  // const [subTotal, setSubTotal] = useState("");
 
+  // useEffect(() => {
+  //   let price = 0;
+  //   state.cart.forEach((item) => (price += item.price * 2));
+  //   setSubTotal(price);
+  // }, [state.cart]);
   return (
     <div>
       <div className="products">
         {state.cart.map((product) => {
           console.log(product);
+
           return (
             <div key={uuidv4()} className="product-card">
               <img
@@ -38,7 +46,7 @@ const Checkout = () => {
                   <>
                     <span className="product-count">Qty:{product.count}</span>
                     <span className="product-amnt">
-                      Total:{(product.count * product.price).toFixed(2)}
+                      Sub Total:{(product.count * product.price).toFixed(2)}
                     </span>
                   </>
                 )}
@@ -78,6 +86,11 @@ const Checkout = () => {
             </div>
           );
         })}
+      </div>
+      <div className="total">
+        <span className="products-total-amount">
+          {state.cart.reduce((amount, item) => (amount += item.price), 0)}
+        </span>
       </div>
     </div>
   );
