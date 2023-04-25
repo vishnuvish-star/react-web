@@ -52,3 +52,10 @@
 .increase-btn {
   cursor: pointer;
 }
+.total {
+  /* background-color: red; */
+  display: inline;
+}
+.products-total-amount {
+  padding: 0.5rem;
+}

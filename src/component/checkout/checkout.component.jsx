@@ -7,15 +7,20 @@ import ratingImg from "../../assets/images/Rating-img.png";
 const Checkout = () => {
   const { state, increase, decrease, removeItem } = useContext(CartContext);
   console.log(state.cart);
-  // const [subTotal, setSubTotal] = useState("");
 
-  // useEffect(() => {
-  //   let price = 0;
-  //   state.cart.forEach((item) => (price += item.price * 2));
-  //   setSubTotal(price);
-  // }, [state.cart]);
+  const total = () => {
+    return (
+      <div className="total">
+        <span className="products-total-amount">
+          {state.cart
+            .reduce((amount, item) => (amount += item.count * item.price), 0)
+            .toFixed(1)}
+        </span>
+      </div>
+    );
+  };
   return (
-    <div>
+    <div className="checkout-container">
       <div className="products">
         {state.cart.map((product) => {
           console.log(product);
@@ -44,7 +49,7 @@ const Checkout = () => {
                 {/* used short circuting */}
                 {product.count > 1 && (
                   <>
-                    <span className="product-count">Qty:{product.count}</span>
+                    {/* <span className="product-count">Qty:{product.count}</span> */}
                     <span className="product-amnt">
                       Sub Total:{(product.count * product.price).toFixed(2)}
                     </span>
@@ -87,11 +92,8 @@ const Checkout = () => {
           );
         })}
       </div>
-      <div className="total">
-        <span className="products-total-amount">
-          {state.cart.reduce((amount, item) => (amount += item.price), 0)}
-        </span>
-      </div>
+      <hr></hr>
+      <h3>Grand Total: Rs.{total()}</h3>
     </div>
   );
 };
